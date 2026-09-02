@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEM Dictionary | STEMULAR</title>
+    <link rel="stylesheet" href="Mainpage-style.css">
+    <link rel="stylesheet" href="Dictionary-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="theme.js"></script>
+</head>
+<body>
+
+    <!-- Background Lava Blobs[cite: 1] -->
+    <div class="blob-container" id="blob-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Left Side Navigation Bar[cite: 1] -->
+    <nav class="sidebar">
+        <div class="nav-home-group">
+            <a class="nav-item nav-home" href="index.html" aria-label="Go to home page">
+                <i class="fa-solid fa-house nav-icon"></i>
+                <span class="nav-label">Home</span>
+            </a>
+        </div>
+
+        <div class="nav-center-group">
+            <div class="nav-item has-submenu">
+                <a class="nav-link" href="Lab-Simulation.html">
+                    <i class="fa-solid fa-flask nav-icon"></i>
+                    <span class="nav-label">Lab Simulation</span>
+                </a>
+                <div class="submenu">
+                    <a class="submenu-item" href="Lab-Simulation.html?category=math"><i class="fa-solid fa-calculator"></i> Math Simulation</a>
+                    <a class="submenu-item" href="Lab-Simulation.html?category=science"><i class="fa-solid fa-atom"></i> Science Simulation</a>
+                    <a class="submenu-item" href="Lab-Simulation.html?category=engineering"><i class="fa-solid fa-cogs"></i> Engineering Simulation</a>
+                </div>
+            </div>
+
+           <a class="nav-item" href="#" id="ai-chat-link">
+                <i class="fa-solid fa-robot nav-icon"></i>
+                <span class="nav-label">AI Chat</span>
+            </a>
+
+            <!-- Active Dictionary Navigation -->
+            <a class="nav-item active" href="Dictionary.html">
+                <i class="fa-solid fa-book nav-icon"></i>
+                <span class="nav-label">STEM Dictionary</span>
+            </a>
+        </div>
+
+        <div class="nav-bottom-group">
+            <a class="nav-item" href="Account.html">
+                <i class="fa-solid fa-user-circle nav-icon"></i>
+                <span class="nav-label">Account</span>
+            </a>
+            
+        <!-- Replace the existing Themes <a class="nav-item"> with this block -->
+        <div class="nav-item has-submenu">
+            <a class="nav-link" href="#">
+                <i class="fa-solid fa-palette nav-icon"></i>
+                <span class="nav-label">Themes</span>
+            </a>
+            <!-- Submenu -->
+            <div class="submenu themes-submenu">
+                <a class="submenu-item theme-selector" href="#" data-theme="dark">
+                    <i class="fa-solid fa-moon"></i> Dark
+                </a>
+                <a class="submenu-item theme-selector" href="#" data-theme="light">
+                    <i class="fa-solid fa-sun"></i> Light
+                </a>
+                <a class="submenu-item theme-selector" href="#" data-theme="standard">
+                    <i class="fa-solid fa-circle-dot"></i> Standard (Normal)
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dictionary Layout -->
+    <main class="main-layout dict-layout">
+        <div class="dict-header">
+            <h1 class="dictionary-logo">
+                <span class="dictionary-logo-main">STEM</span>
+                <span class="dictionary-logo-dot">•</span>
+                <span class="dictionary-logo-subtitle">DICTIONARY</span>
+            </h1>
+            <p class="subtitle">Search and explore important Science, Technology, Engineering, and Mathematics terms.</p>
+        </div>
+
+        <!-- Search bar matching the lab simulation page -->
+        <div class="search-container dict-search-container">
+            <button class="search-plus-btn" id="dict-search-focus" type="button" aria-label="Focus dictionary search">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="search-input-wrapper">
+                <input type="text" id="dict-search" placeholder=" " autocomplete="off" />
+                <span class="dict-search-placeholder">Search for a term (e.g., Acceleration)...</span>
+            </div>
+        </div>
+
+        <!-- Category & Alphabet Filters -->
+        <div class="filter-section">
+            <div class="category-filters" id="category-filters">
+                <button class="filter-btn active" data-category="All">All</button>
+                <button class="filter-btn" data-category="Science">Science</button>
+                <button class="filter-btn" data-category="Mathematics">Mathematics</button>
+                <button class="filter-btn" data-category="Engineering">Engineering</button>
+            </div>
+            <div class="alphabet-filters" id="alphabet-filters">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Results Grid -->
+        <div class="results-grid dict-grid" id="dict-grid">
+            <!-- Cards populated dynamically -->
+        </div>
+    </main>
+
+    <!-- NEW MODAL CODE (Placed outside nav and main) -->
+    <div class="modal-overlay" id="notice-modal">
+        <div class="modal-card">
+            <div class="modal-icon">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+            <h3 class="modal-title">Under Construction</h3>
+            <p class="modal-text"> The AI Chat feature isn't available yet. Check back soon for updates!</p>
+            <button class="modal-close-btn" id="close-modal-btn">Got it</button>
+        </div>
+    </div>
+
+    <script src="Dictionary-script.js"></script>
+</body>
+</html>

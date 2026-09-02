@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings | STEMULAR</title>
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="Mainpage-style.css">
+    <!-- Account Specific Style Sheet -->
+    <link rel="stylesheet" href="account-style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Global Theme Script (Executes prior to page render to prevent flinch) -->
+    <script src="theme.js"></script>
+</head>
+<body class="account-page">
+
+    <!-- Background Lava Blobs -->
+    <div class="blob-container" id="blob-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Left Side Navigation Bar -->
+    <nav class="sidebar">
+        <div class="nav-home-group">
+            <a class="nav-item" href="index.html" aria-label="Go to home page">
+                <i class="fa-solid fa-house nav-icon"></i>
+                <span class="nav-label">Home</span>
+            </a>
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="nav-center-group">
+            <div class="nav-item has-submenu">
+                <a class="nav-link" href="Lab-Simulation.html">
+                    <i class="fa-solid fa-flask nav-icon"></i>
+                    <span class="nav-label">Lab Simulation</span>
+                </a>
+                <div class="submenu">
+                    <a class="submenu-item" href="Lab-Simulation.html?category=math"><i class="fa-solid fa-calculator"></i> Math Simulation</a>
+                    <a class="submenu-item" href="Lab-Simulation.html?category=science"><i class="fa-solid fa-atom"></i> Science Simulation</a>
+                    <a class="submenu-item" href="Lab-Simulation.html?category=engineering"><i class="fa-solid fa-cogs"></i> Engineering Simulation</a>
+                </div>
+            </div>
+
+           <a class="nav-item" href="#" id="ai-chat-link">
+                <i class="fa-solid fa-robot nav-icon"></i>
+                <span class="nav-label">AI Chat</span>
+            </a>
+
+            <a class="nav-item" href="Dictionary.html">
+                <i class="fa-solid fa-book nav-icon"></i>
+                <span class="nav-label">STEM Dictionary</span>
+            </a>
+        </div>
+
+        <!-- Bottom Navigation (Account & Settings) -->
+        <div class="nav-bottom-group">
+            <a class="nav-item active" href="account.html" aria-current="page">
+                <i class="fa-solid fa-user-circle nav-icon"></i>
+                <span class="nav-label">Account</span>
+            </a>
+            
+            <div class="nav-item has-submenu">
+                <a class="nav-link" href="#">
+                    <i class="fa-solid fa-palette nav-icon"></i>
+                    <span class="nav-label">Themes</span>
+                </a>
+                <div class="submenu themes-submenu">
+                    <a class="submenu-item theme-selector" href="#" data-theme="dark">
+                        <i class="fa-solid fa-moon"></i> Dark
+                    </a>
+                    <a class="submenu-item theme-selector" href="#" data-theme="light">
+                        <i class="fa-solid fa-sun"></i> Light
+                    </a>
+                    <a class="submenu-item theme-selector" href="#" data-theme="standard">
+                        <i class="fa-solid fa-circle-dot"></i> Standard (Normal)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Account Content Area -->
+    <main class="account-dashboard-layout">
+        
+        <!-- Dashboard Header -->
+        <header class="account-header">
+            <div class="header-user-badge">
+                <div class="avatar-circle">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                    <h1 id="header-username-display">Jayesh</h1>
+                    <p class="account-status-pill"><i class="fa-solid fa-shield-halved"></i> Active STEMULAR Explorer</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Account Grid -->
+        <div class="account-grid">
+
+            <!-- Profile & Account Information -->
+            <section class="account-card profile-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-id-card"></i> Profile Information</h2>
+                </div>
+                <div class="card-body">
+                    
+                    <!-- Username Field -->
+                    <div class="info-group">
+                        <label for="username-input">Username / Nickname</label>
+                        <div class="input-action-wrapper">
+                            <input type="text" id="username-input" class="stemular-input" readonly value="Jayesh">
+                            <button type="button" id="edit-username-btn" class="action-btn">
+                                <i class="fa-solid fa-pen-to-square"></i> Edit
+                            </button>
+                            <button type="button" id="save-username-btn" class="action-btn primary-btn" style="display: none;">
+                                <i class="fa-solid fa-check"></i> Save
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="info-group">
+                        <label for="email-input">Email Address</label>
+                        <div class="input-action-wrapper">
+                            <input type="email" id="email-input" class="stemular-input disabled-input" readonly value="jayesh@stemular.edu">
+                            <span class="field-badge"><i class="fa-solid fa-lock"></i> Verified</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Daily Lesson Settings -->
+            <section class="account-card lesson-settings-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-calendar-check"></i> Daily Lesson Settings</h2>
+                </div>
+                <div class="card-body toggle-list">
+                    
+                    <!-- Daily Lesson Main Toggle -->
+                    <div class="setting-toggle-row">
+                        <div class="setting-text">
+                            <h3>Daily Lesson</h3>
+                            <p>Receive a daily lesson to maintain your learning routine.</p>
+                        </div>
+                        <label class="stem-switch">
+                            <input type="checkbox" id="daily-lesson-toggle">
+                            <span class="stem-slider"></span>
+                        </label>
+                    </div>
+
+                    <hr class="card-divider">
+
+                    <!-- Daily Lesson Pop-Up Toggle -->
+                    <div class="setting-toggle-row" id="popup-setting-row">
+                        <div class="setting-text">
+                            <h3>Daily Lesson Pop-Up</h3>
+                            <p>Show a notification/pop-up when today's lesson is available.</p>
+                        </div>
+                        <label class="stem-switch">
+                            <input type="checkbox" id="daily-popup-toggle">
+                            <span class="stem-slider"></span>
+                        </label>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Daily Lesson Streak -->
+            <section class="account-card streak-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-fire"></i> Daily Lesson Streak</h2>
+                </div>
+                <div class="card-body streak-body">
+                    <div class="streak-badge-main">
+                        <span class="fire-icon">🔥</span>
+                        <span class="streak-count" id="current-streak-val">0</span>
+                        <span class="streak-unit">Days</span>
+                    </div>
+                    <div class="streak-stats">
+                        <div class="stat-box">
+                            <span class="stat-label">Longest Streak</span>
+                            <span class="stat-value" id="longest-streak-val">0 Days</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">Today's Lesson</span>
+                            <span class="stat-value highlight-status" id="today-lesson-status">Pending</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz Progress -->
+            <section class="account-card progress-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-chart-line"></i> Quiz Progress</h2>
+                </div>
+                <div class="card-body">
+                    <div class="progress-meta">
+                        <span class="progress-text-count" id="quiz-ratio-text">0 / 1909 Quizzes Completed</span>
+                        <span class="progress-percentage" id="quiz-percentage-text">0.00%</span>
+                    </div>
+                    <div class="progress-bar-track">
+                        <div class="progress-bar-fill" id="quiz-progress-fill"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz Points -->
+            <section class="account-card points-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-trophy"></i> Quiz Points</h2>
+                </div>
+                <div class="card-body points-body">
+                    <div class="points-display">
+                        <span class="points-number" id="quiz-points-val">0</span>
+                        <span class="points-label">Total Points</span>
+                    </div>
+                    <div class="points-breakdown">
+                        <div class="sub-stat">
+                            <span>Highest Score:</span>
+                            <strong id="highest-score-val">0 pts</strong>
+                        </div>
+                        <div class="sub-stat">
+                            <span>Recent Earned:</span>
+                            <strong id="recent-earned-val">+0 pts</strong>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Logout Section -->
+            <section class="account-card logout-card">
+                <div class="card-body logout-body">
+                    <div class="logout-text">
+                        <h3>Session Control</h3>
+                        <p>Sign out of your account on this device when finished.</p>
+                    </div>
+                    <button type="button" id="logout-btn" class="action-btn danger-btn">
+                        <i class="fa-solid fa-right-from-bracket"></i> Log Out
+                    </button>
+                </div>
+            </section>
+
+            <!-- Account Security Section -->
+            <section class="account-card security-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-user-shield"></i> Account Security</h2>
+                </div>
+                <div class="card-body security-body">
+                    <div class="security-info-grid">
+                        <div class="security-item">
+                            <span class="sec-label">Password Status</span>
+                            <span class="sec-value" id="password-status-val">Protected (Last changed 30 days ago)</span>
+                        </div>
+                        <div class="security-item">
+                            <span class="sec-label">Last Login Activity</span>
+                            <span class="sec-value" id="last-login-val">Today at 10:30 AM (Current Device)</span>
+                        </div>
+                        <div class="security-item">
+                            <span class="sec-label">Protection Level</span>
+                            <span class="sec-value security-good"><i class="fa-solid fa-circle-check"></i> Standard Encryption Active</span>
+                        </div>
+                    </div>
+                    <div class="security-actions">
+                        <button type="button" class="action-btn" id="change-password-btn">
+                            <i class="fa-solid fa-key"></i> Change Password
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Custom Modal for Logout Confirmation -->
+    <div class="modal-overlay" id="logout-modal">
+        <div class="modal-card">
+            <h3>Confirm Log Out</h3>
+            <p>Are you sure you want to log out of your STEMULAR session?</p>
+            <div class="modal-actions">
+                <button class="action-btn" id="cancel-logout-btn">Cancel</button>
+                <button class="action-btn danger-btn" id="confirm-logout-btn">Log Out</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- NEW MODAL CODE (Placed outside nav and main) -->
+    <div class="modal-overlay" id="notice-modal">
+        <div class="modal-card">
+            <div class="modal-icon">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+            <h3 class="modal-title">Under Construction</h3>
+            <p class="modal-text"> The AI Chat feature isn't available yet. Check back soon for updates!</p>
+            <button class="modal-close-btn" id="close-modal-btn">Got it</button>
+        </div>
+    </div>
+
+    <!-- Account Page Logic -->
+    <script src="account.js"></script>
+</body>
+</html>

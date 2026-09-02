@@ -1,0 +1,33 @@
+/* --- Core Default Variables --- */
+:root {
+    --bg-color: #05050f;
+    --accent-primary: #38bdf8;
+    --accent-secondary: #818cf8;
+    --text-main: #ffffff;
+    --text-muted: #94a3b8;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] {
+    --bg-color: #f8fafc;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --glass-bg: rgba(0, 0, 0, 0.04);
+    --glass-border: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Theme Overrides */
+[data-theme="dark"] {
+    --bg-color: #000000;
+    --text-main: #ffffff;
+    --text-muted: #a1a1aa;
+    --glass-bg: rgba(255, 255, 255, 0.02);
+    --glass-border: rgba(255, 255, 255, 0.05);
+}
+
+/* Smooth Transitions */
+body, nav, div, section, card {
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}

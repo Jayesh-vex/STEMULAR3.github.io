@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEMULAR Portal</title>
+  <link rel="stylesheet" href="login-style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Ambient Background Glows -->
+  <div class="ambient-light light-1"></div>
+  <div class="ambient-light light-2"></div>
+
+  <header class="portal-header">
+    <a href="Overview.html" class="portal-logo" aria-label="Return to STEMULAR home">
+      <span class="portal-logo-icon">⏣</span> STEMULAR
+    </a>
+  </header>
+
+  <main class="split-screen">
+    
+    <!-- LEFT SIDE: EVE-INSPIRED ROBOT SECTION -->
+    <section class="robot-section">
+      <div class="robot-stage">
+        <div class="robot-container" id="robot">
+          
+          <!-- Floating Flippers -->
+          <div class="flipper flipper-left" id="flipper-left"></div>
+          <div class="flipper flipper-right" id="flipper-right"></div>
+
+          <!-- EVE Floating Head -->
+          <div class="eve-head" id="robot-head">
+            <div class="eve-visor">
+              <!-- Glowing Digital LED Eyes -->
+              <div class="led-eye left-eye" id="eye-left"></div>
+              <div class="led-eye right-eye" id="eye-right"></div>
+            </div>
+          </div>
+
+          <!-- Magnetic Levitation Gap -->
+          <div class="mag-lev-gap"></div>
+
+          <!-- EVE Egg Body -->
+          <div class="eve-body">
+            <div class="status-emblem">🪴</div>
+          </div>
+          
+          <div class="eve-shadow"></div>
+        </div>
+      </div>
+      <div class="robot-caption">
+        <h2>STEMULAR Guardian</h2>
+        <p>Extraterrestrial Vegetation Evaluator - Guest Portal Access.</p>
+      </div>
+    </section>
+
+    <!-- RIGHT SIDE: GUEST TESTING AUTHENTICATION -->
+    <section class="form-section">
+      <div class="auth-card">
+
+        <!-- Title & Status Messages -->
+        <div class="form-header">
+          <h1 id="form-title">Guest Testing</h1>
+          <p id="form-subtitle">Click below to test the portal as a guest user.</p>
+          <div class="alert-box" id="alert-box"></div>
+        </div>
+
+        <form id="auth-form" novalidate>
+          <!-- Submit Button -->
+          <button type="submit" class="submit-btn" id="submit-btn">
+            <span id="btn-text">Sign In as Guest</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        
+          <!-- Countdown Timer Display -->
+          <div id="countdown-text" class="countdown-display" style="display: none; text-align: center; margin-top: 16px; color: var(--accent-cyan); font-weight: 600; font-size: 0.9rem;"></div>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <button class="reset-btn" onclick="resetStorage()">Reset Local Storage</button>
+  <script src="login-script.js"></script>
+</body>
+</html>

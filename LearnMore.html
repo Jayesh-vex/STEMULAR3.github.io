@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn More | STEMULAR</title>
+    <link rel="stylesheet" href="Mainpage-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="theme.js"></script>
+</head>
+<body>
+
+    <!-- Background Lava Blobs -->
+    <div class="blob-container" id="blob-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="nav-home-group">
+            <a class="nav-item nav-home" href="index.html" aria-label="Back to Search">
+                <i class="fa-solid fa-arrow-left nav-icon"></i>
+                <span class="nav-label">Back to Search</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="main-layout" style="margin-left: var(--sidebar-collapsed); padding: 40px 20px; min-height: 100vh; justify-content: flex-start; overflow-y: auto;">
+        <div class="result-card" id="term-details-card" style="max-width: 1100px; width: 100%; margin-top: 20px;">
+            <h2 style="text-align:center; color: var(--text-muted);">Loading Term...</h2>
+        </div>
+    </main>
+
+    <script src="database.js"></script>
+    <script src="LearnMore-script.js"></script>
+</body>
+</html>
