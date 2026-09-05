@@ -651,6 +651,22 @@ body.dark-theme .blob {
     opacity: 0.25; /* Dims lava blobs for true dark mode */
 }
 
+/* Neutralize the ambient blobs in dark mode. */
+:root.dark-theme .blob-1,
+body.dark-theme .blob-1 {
+    background: linear-gradient(to right, #52525b, #27272a);
+}
+
+:root.dark-theme .blob-2,
+body.dark-theme .blob-2 {
+    background: linear-gradient(to right, #3f3f46, #18181b);
+}
+
+:root.dark-theme .blob-3,
+body.dark-theme .blob-3 {
+    background: linear-gradient(to right, #71717a, #3f3f46);
+}
+
 body.dark-theme .submenu {
     background: rgba(15, 15, 18, 0.98);
 }
