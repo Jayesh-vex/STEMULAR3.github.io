@@ -7,6 +7,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const termData = stemDatabase.find(item => item.term.toLowerCase() === searchTerm.toLowerCase());
 
         if (termData) {
+            const simulationCategoryMap = {
+                Mathematics: 'math',
+                Physics: 'science',
+                Chemistry: 'science',
+                Biology: 'science',
+                'Earth Science': 'science',
+                Engineering: 'engineering',
+                'Computer Science': 'engineering'
+            };
+            const simulationCategory = simulationCategoryMap[termData.category] || '';
+            const simulationSearchUrl = `Lab-Simulation.html?term=${encodeURIComponent(termData.term)}${simulationCategory ? `&category=${simulationCategory}` : ''}`;
+
             // Build Key Concepts list if available
             let conceptsMarkup = "";
             if (termData.keyConcepts && termData.keyConcepts.length > 0) {
@@ -54,12 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 ${conceptsMarkup}
 
                 <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--glass-border); display: flex; gap: 15px; flex-wrap: wrap;">
-                    <a href="Lab-Simulation.html" class="action-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                    <a href="${simulationSearchUrl}" class="action-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
                         <i class="fa-solid fa-flask"></i> Launch Simulation
                     </a>
-                    <button class="action-btn notice-trigger-btn" data-feature="Ask AI" style="display: inline-flex; align-items: center; gap: 8px;">
+                    <a href="ai-chat/ai-chat.html?term=${encodeURIComponent(termData.term)}" class="action-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
                         <i class="fa-solid fa-robot"></i> Ask AI Assistant
-                    </button>
+                    </a>
                 </div>
             `;
         } else {
