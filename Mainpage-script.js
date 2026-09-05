@@ -467,7 +467,7 @@ const stemDatabase = [
                 <div class="result-actions">
                     <button class="action-btn" onclick="window.location.href='LearnMore.html?term=${encodeURIComponent(data.term)}'">Learn More</button>
                     <button class="action-btn notice-trigger-btn" data-feature="Simulate">Simulate</button>
-                    <button class="action-btn notice-trigger-btn" data-feature="Ask AI">Ask AI</button>
+                    <a class="action-btn" href="ai-chat/ai-chat.html?term=${encodeURIComponent(data.term)}" style="text-decoration: none;">Ask AI</a>
                 </div>
             </div>
         `;
@@ -553,7 +553,6 @@ const stemDatabase = [
         });
     });
 
-const chatLink = document.getElementById('ai-chat-link');
 const modal = document.getElementById('notice-modal');
 const closeBtn = document.getElementById('close-modal-btn');
 const modalText = document.querySelector('.modal-text'); // Grab the text paragraph inside modal
@@ -567,22 +566,14 @@ const openModal = (featureName) => {
         if (featureName) {
             modalText.textContent = `The ${featureName} feature isn't available yet. Check back soon for updates!`;
         } else {
-            modalText.textContent = `The AI Chat feature isn't available yet. Check back soon for updates!`;
+            modalText.textContent = `This feature isn't available yet. Check back soon for updates!`;
         }
     }
     modal.classList.add('active');
 };
 
 if (modal && closeBtn) {
-    // 1. Open Modal on Sidebar AI Chat Click
-    if (chatLink) {
-        chatLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            openModal('AI Chat');
-        });
-    }
-
-    // 2. Open Modal on Dynamic Result Buttons ("Simulate" or "Ask AI") using Event Delegation
+    // Open a modal on unavailable dynamic result buttons using event delegation.
     document.addEventListener('click', (e) => {
         if (e.target && e.target.classList.contains('notice-trigger-btn')) {
             e.preventDefault();
